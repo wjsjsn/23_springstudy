@@ -1,0 +1,7 @@
+package ex01_nonDI;
+
+public class TestMain {
+	public static void main(String[] args) {
+
+	}
+}
