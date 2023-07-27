@@ -31,13 +31,19 @@
 		border: 1px solid tomato;
 		padding: 3px;
 	}
+	
+	h2{
+		margin: auto;
+		padding: 30px;
+		text-align: center;
+	}
 </style>
 </head>
 <body>
 	<h2>회원 정보</h2>
 	<table>
 		<thead>
-			<tr>
+			<tr style="background-color: snow;">
 				<th>번호</th><th>아이디</th><th>비밀번호</th><th>이름</th><th>나이</th><th>등록일</th>
 			</tr>
 		</thead>
