@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+		
+		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<!-- 오라클 연결 정보
+		 <property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url"
+			value="jdbc:oracle:thin:@192.168.0.41:1521:xe" />
+		<property name="username" value="c##ysh" />
+		<property name="password" value="1111" /> 
+		</bean>-->
+		<!-- 마리아DB 연결 정보 -->
+		<property name="driverClassName" value="org.mariadb.jdbc.Driver" />
+		<property name="url" value="jdbc:mariadb://localhost:3306/ictedu" />
+		<property name="username" value="pcl" />
+		<property name="password" value="1111" />
+	</bean>
+
+	<!-- mybatis에 config 역할(오라클과 mybatis연결 , mapper 위치) -->
+	<bean id="sqlSessionFactoryBean"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" /> <!-- 오라클정보를 마이바티스에서 받기 위함 -->
+		<!-- <property name="mapperLocations" value="classpath*:ex10_guestbook/mapper.xml" /> 매퍼 위치를 쓰기 위함 -->
+	<!--	<property name="mapperLocations" value="classpath:*/mapper.xml" /> 매퍼 위치를 쓰기 위함 -->
+	
+		<!-- mybatis-config.xml 의 위치는 src/main/resources/mybatis-config.xml -->
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
+	</bean>
+
+
+	<!-- DAO에서 사용할 SqlSessionTemplate 클래스를 xml에서 객체로 만들어야한다. -->
+	<bean id="sqlSessionTemplate"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<!-- SqlSessionTemplate는 기본생성자가 아니라서 컨스트럭터로 sqlSessionFactoryBean 넣어줘야 
+			인식이 된다. -->
+		<constructor-arg ref="sqlSessionFactoryBean"></constructor-arg>
+	</bean>
+	
+		<context:annotation-config />
+		<context:component-scan base-package="com.ict.*" />
+			
+</beans>

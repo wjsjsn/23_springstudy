@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 
+	MyBatis에서 쿼리에 매핑되는 파라미터에 Null 값이 있는 경우
+	에러 발생 => 해결 방안 :name="jdbcTypeForNull" value="NULL" 
+	 -->
+	<!-- 
+	 MyBatis cache 사용 여부 : name="cacheEnabled" value="false"
+	 -->
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+		<setting name="cacheEnabled" value="false"/>
+	</settings>
+	<!-- Alias : 별칭 -->
+	<typeAliases>
+		<typeAlias type="com.ict.model.vo.MembersVO" alias="mvo"/>
+		<typeAlias type="com.ict.model.vo.GuestbookVO" alias="gvo"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="mappers/members-mapper.xml" />
+		<mapper resource="mappers/guestbook-mapper.xml" />
+	</mappers>
+</configuration>
