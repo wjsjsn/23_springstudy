@@ -17,6 +17,7 @@ import com.ict.model.vo.GuestbookVO;
 
 @Controller
 public class GuestbookController {
+	// 일처리(DB)가 있으면 서비스로 가기
 	@Autowired
 	private GuestbookService guestbookService;
 

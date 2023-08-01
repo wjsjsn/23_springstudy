@@ -24,31 +24,26 @@ public class GuestbookServiceImpl implements GuestbookService{
 	
 	@Override
 	public List<GuestbookVO> guestbookList() {
-		List<GuestbookVO> list = guestbookDAO.guestbooklist();
-		return list;
+		return guestbookDAO.guestbooklist();
 	}
 	
 	@Override
 	public int WriteAdd(GuestbookVO gvo) {
-		int result = guestbookDAO.WriteAdd(gvo);
-		return result;
+		return guestbookDAO.WriteAdd(gvo);
 	}
 	
 	@Override
 	public GuestbookVO oneList(String idx) {
-		GuestbookVO gvo = guestbookDAO.oneList(idx);
-		return gvo;
+		return guestbookDAO.oneList(idx);
 	}
 	
 	@Override
 	public int UpdateOk(GuestbookVO gvo) {
-		int result = guestbookDAO.UpdateOk(gvo);
-		return result;
+		return guestbookDAO.UpdateOk(gvo);
 	}
 	
 	@Override
 	public int DeleteOk(String idx) {
-		int result = guestbookDAO.DeleteOk(idx);
-		return result;
+		return guestbookDAO.DeleteOk(idx);
 	}
 }

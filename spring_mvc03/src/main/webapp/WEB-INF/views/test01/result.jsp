@@ -42,7 +42,7 @@
 	<img src="/resources/images/IMG_1221.png" style="width: 100px;"><br>
 	권장사항 : <img src="resources/images/IMG_1221.png" style="width: 100px;"><br>
 	<img src='<c:url value="/resources/images/IMG_1221.png" />' style="width: 100px;"><br>
-	권장사항 : <img src='<c:url value="/resources/images/IMG_1221.png" />' style="width: 100px;"><br>
+	권장사항 : <img src='<c:url value="resources/images/IMG_1221.png" />' style="width: 100px;"><br>
 	<hr>
 	
 	<%-- 이미지 업로드 : cos 라이브러리 사용(MultipartRequest)
