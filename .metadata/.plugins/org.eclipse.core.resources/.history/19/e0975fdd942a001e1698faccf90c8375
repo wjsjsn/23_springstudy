@@ -1,9 +1,0 @@
-package ex01_nonDI;
-
-public class OracleDAO implements DAO {
-	@Override
-	public void prn() {
-		// TODO Auto-generated method stub
-
-	}
-}

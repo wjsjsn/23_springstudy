@@ -21,14 +21,6 @@ public class GuestbookController {
 	@Autowired
 	private GuestbookService guestbookService;
 
-	public GuestbookService getGuestbookService() {
-		return guestbookService;
-	}
-
-	public void setGuestbookService(GuestbookService guestbookService) {
-		this.guestbookService = guestbookService;
-	}
-	
 	@GetMapping("/guestbook_list.do")
 	public ModelAndView getGuestList() {
 		ModelAndView mv = new ModelAndView("guestbook/list");
@@ -50,8 +42,9 @@ public class GuestbookController {
 		return mv;
 	}
 	
+	// idx는 onelist.jsp에도 사용하기 때문에 넘겨야함
 	@GetMapping("/guestbook_onelist.do")
-		public ModelAndView oneList(@RequestParam("idx")String idx) {
+		public ModelAndView oneList(@ModelAttribute("idx")String idx) {
 		ModelAndView mv = new ModelAndView("guestbook/onelist");
 		GuestbookVO gvo = guestbookService.oneList(idx);
 		mv.addObject("gvo", gvo);
@@ -59,8 +52,7 @@ public class GuestbookController {
 		}
 	
 	@PostMapping("/guestbook_update.do")
-	public ModelAndView UpdateAdd(@RequestParam("idx")String idx) {
-		System.out.println(idx);
+	public ModelAndView UpdateAdd(String idx) {
 		ModelAndView mv = new ModelAndView("guestbook/update");
 		GuestbookVO gvo = guestbookService.oneList(idx);
 		mv.addObject("gvo", gvo);
@@ -76,16 +68,16 @@ public class GuestbookController {
 	}
 	
 	@PostMapping("/guestbook_delete.do")
-	public ModelAndView delete(@RequestParam("idx")String idx) {
+	public ModelAndView delete(@ModelAttribute("idx")String idx) {
 		ModelAndView mv = new ModelAndView("guestbook/delete");
+		// jsp에서 실제 삭제할 때 비밀번호를 검사하기 위해서 oneList() 실행
 		GuestbookVO gvo = guestbookService.oneList(idx);
 		mv.addObject("gvo", gvo);
 		return mv;
 	}
 	
 	@PostMapping("/guestbook_deleteOk.do")
-	public ModelAndView DeleteOk(@RequestParam("idx")String idx) {
-		System.out.println(idx);
+	public ModelAndView DeleteOk(String idx) {
 		ModelAndView mv = new ModelAndView("redirect:/guestbook_list.do");
 		int result = guestbookService.DeleteOk(idx);
 		mv.addObject("result", result);

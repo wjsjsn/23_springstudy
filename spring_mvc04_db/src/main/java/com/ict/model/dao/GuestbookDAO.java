@@ -14,14 +14,6 @@ public class GuestbookDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 
-	public SqlSessionTemplate getSqlSessionTemplate() {
-		return sqlSessionTemplate;
-	}
-
-	public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
-		this.sqlSessionTemplate = sqlSessionTemplate;
-	}
-
 	// 서비스에서 DB 처리하는 메서드를 모두 받아줘야 함
 	// guestbook 리스트
 	public List<GuestbookVO> guestbooklist() {

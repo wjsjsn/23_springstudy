@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,14 +19,6 @@ public class summer_Controller {
 	@Autowired
 	private FileRename fileRename;
 	
-	public FileRename getFileRename() {
-		return fileRename;
-	}
-
-	public void setFileRename(FileRename fileRename) {
-		this.fileRename = fileRename;
-	}
-
 	//@RequestMapping(value="/saveImg.do", method = RequestMethod.POST) 같은 방식
 	@PostMapping(value="/saveImg.do")
 	@ResponseBody
@@ -37,12 +30,11 @@ public class summer_Controller {
 		if(f.getSize() > 0) {
 			// 첨부파일 위치
 			String path = request.getSession().getServletContext().getRealPath("/resources/upload");
-			fname = f.getOriginalFilename();
-
+			
+			UUID uuid = UUID.randomUUID();
 			// 같은 파일 이름이 있으면 업로드를 못하므로 이름을 변경시켜야함
-			// 단, 한 번 이상은 x => 차후 겹치지 않게 해야함 
-			fname = fileRename.exec(path, fname);
-		//	System.out.println("fname : " + fname);
+			fname = uuid.toString() + "_" + f.getOriginalFilename();
+
 			try {
 				//업로드
 				f.transferTo(new File(path, fname));

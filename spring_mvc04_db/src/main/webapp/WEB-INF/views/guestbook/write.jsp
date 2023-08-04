@@ -54,7 +54,7 @@
 <body>
 	<div>
 		<h2>방명록 : 작성화면</h2>
-		<hr />
+		<hr style="border: 1px solid tomato;">
 		<p>[<a href="/guestbook_list.do">목록으로 이동</a>]</p>
 		<form method="post">
 			<table>
@@ -82,10 +82,9 @@
 				<tfoot>
 					<tr align="center">
 						<td colspan="2">
-							<input type="hidden" value="write_ok" name="cmd">
-							<input type="button" value="저장" onclick="save_go(this.form)" />
+							<input type="button" style="background-color: lightyellow"  value="저장" onclick="save_go(this.form)" />
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="reset" value="취소" />
+							<input type="reset" style="background-color: lightyellow"  value="취소" />
 						</td>
 					</tr>
 				</tfoot>

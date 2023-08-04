@@ -33,3 +33,5 @@ D:\pcl\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4006633
 \spring_mvc_db\src\main\java
 D:\pcl\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1823557430.index
 \test\src\main\java
+D:\pcl\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\893817428.index
+\spring_mvc04_db\src\main\java

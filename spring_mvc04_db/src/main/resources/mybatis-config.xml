@@ -17,10 +17,14 @@
 	<!-- Alias : 별칭 -->
 	<typeAliases>
 		<typeAlias type="com.ict.model.vo.MembersVO" alias="mvo"/>
+		<typeAlias type="com.ict.member.model.vo.MemberVO" alias="mvo2"/>
 		<typeAlias type="com.ict.model.vo.GuestbookVO" alias="gvo"/>
+		<typeAlias type="com.ict.model.vo.Guestbook2VO" alias="gvo2"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/members-mapper.xml" />
+		<mapper resource="mappers/member-mapper.xml" />
 		<mapper resource="mappers/guestbook-mapper.xml" />
+		<mapper resource="mappers/guestbook2-mapper.xml" />
 	</mappers>
 </configuration>

@@ -28,12 +28,16 @@ div {
 	text-align : center;
 	margin: auto;
 	}
+	
+#number {
+	background-color: snow;
+	}
 </style>
 </head>
 <body>
 <div>
 	<h2>방명록 리스트</h2>
-	<hr>
+	<hr style="border: 1px solid tomato;">
 		<p>[<a href="/guestbook_write.do">방명록 쓰기</a>]</p>
 	<table>
 		<thead>
@@ -54,7 +58,7 @@ div {
 				<c:otherwise>
 					<c:forEach var="k" items="${list}" varStatus="vs">
 						<tr>
-							<td>${vs.count}</td>
+							<td id="number">${vs.count}</td>
 							<td>${k.name}</td>
 							<td><a href="guestbook_onelist.do?idx=${k.idx}">${k.subject}</a></td>
 							<td>${k.regdate.substring(0, 10)}</td>

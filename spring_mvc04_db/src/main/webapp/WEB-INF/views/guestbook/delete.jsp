@@ -17,7 +17,7 @@ table {
 }
 
 table, th, td {
-	border: 1px solid black;
+	border: 1px solid tomato;
 	padding: 3px
 }
 
@@ -51,7 +51,7 @@ div {
 <body>
 	<div>
 		<h2>방명록 : 삭제화면</h2>
-		<hr>
+		<hr style="border: 1px solid tomato;">
 		<p>
 			[<a href="/guestbook_list.do">목록으로 이동</a>]
 		</p>
@@ -59,13 +59,13 @@ div {
 			<table>
 				<tbody>
 					<tr>
-						<th style="background-color: lavender">비밀번호</th>
+						<th style="background-color: snow">비밀번호</th>
 						<td><input type="password" name="pwd"></td>
 					</tr>
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="2"><input type="button" value="삭제"
+						<td colspan="2"><input type="button" style="background-color: lightyellow"  value="삭제"
 							onclick="delete_go(this.form)"> <input type="hidden"
 							name="idx" value="${gvo.idx}"> 
 							</td>

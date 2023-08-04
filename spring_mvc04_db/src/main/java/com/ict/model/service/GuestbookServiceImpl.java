@@ -14,14 +14,6 @@ public class GuestbookServiceImpl implements GuestbookService{
 	@Autowired
 	private GuestbookDAO guestbookDAO;
 
-	public GuestbookDAO getGuestbookDAO() {
-		return guestbookDAO;
-	}
-
-	public void setGuestbookDAO(GuestbookDAO guestbookDAO) {
-		this.guestbookDAO = guestbookDAO;
-	}
-	
 	@Override
 	public List<GuestbookVO> guestbookList() {
 		return guestbookDAO.guestbooklist();

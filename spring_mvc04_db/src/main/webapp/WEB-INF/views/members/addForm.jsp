@@ -46,7 +46,8 @@
 			return;
 		}
 		
-		f.action="/members_addMember.do";
+	//	f.action="/members_addMember.do";
+		f.action="/member_add.do";
 		f.submit();
 	}
 </script>

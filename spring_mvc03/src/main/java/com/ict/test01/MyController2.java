@@ -60,7 +60,7 @@ public class MyController2 {
 	// servlet-context.xml에 파일 업로드용 클래스 등록
 	// 업로드 시 파일 용량 제한 설정
 	// 업로드할 때 이름만 기억
-	// @RequestParam => 파라미터를 받을 때 사용할 수 있음(request.getParameter()역할)
+	// @RequestParam => 파라미터를 받을 때 사용할 수 있음(request.getParameter() 역할)
 	@PostMapping(value = "/f_up2.do")
 	public ModelAndView getFileUp2(
 			@RequestParam("f_name") MultipartFile file, 
