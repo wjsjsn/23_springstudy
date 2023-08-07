@@ -52,4 +52,12 @@ public class MemberController {
 			return mv;
 		}
 	}
+	
+	@GetMapping("/member_logout.do")
+	public ModelAndView getLogout(HttpSession session) {
+	//	session.invalidate(); // 세션 초기화
+		session.removeAttribute("m_id");
+		session.removeAttribute("loginChk");
+		return new ModelAndView("redirect:/");
+	}
 }

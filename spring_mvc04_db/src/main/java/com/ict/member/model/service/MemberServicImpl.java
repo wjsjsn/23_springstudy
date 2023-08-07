@@ -1,4 +1,4 @@
-package com.ict.member.controller;
+package com.ict.member.model.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

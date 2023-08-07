@@ -20,10 +20,10 @@
 	$(document).ready(function() {
 		var loginChk = "${loginChk}";
 		if(loginChk == "fail"){
-		alert("비밀번호 OK");
+		alert("비밀번호 FAIL");
 		return;
 	}else if(loginChk == "ok"){
-		alert("비밀번호 FAIL");
+		alert("비밀번호 Ok");
 		$("#login").css("display", "none"); // 감추기
 		$("#login_ok").css("display", "block"); // 나타내기
 		return;
@@ -34,20 +34,33 @@
 	function go_members() {
 		location.href = "/members_list.do";
 	}
+	
 	function go_guestbook() {
 		location.href = "/guestbook_list.do";
 	}
+	
 	function go_guestbook2() {
 		location.href = "/guestbook2_list.do";
+	}	
+	
+	function go_bbs() {
+		location.href = "/bbs_list.do";
 	}
+	
 	function reg_add_go() {
 		location.href = "/member_reg.do";
 	}
+	
 	function id_find_go() {
 		location.href = "/go_membersAdd.do";
 	}
+	
 	function pw_find_go() {
 		location.href = "/go_membersAdd.do";
+	}
+	
+	function member_logout() {
+		location.href = "/member_logout.do";
 	}
 </script>
 </head>
@@ -55,6 +68,7 @@
 	<button onclick="go_members()">Members</button>
 	<button onclick="go_guestbook()">GuestBook</button>
 	<button onclick="go_guestbook2()">GuestBook2</button>
+	<button onclick="go_bbs()">BBS</button>
 	<hr>
 	<div id="login" style="margin: 30px;">
 		<form method="post" action="/member_login.do">
@@ -69,6 +83,7 @@
 	</div>
 	<div id="login_ok" style="display: none;">
 		<h2>${m_id}님 로그인 성공</h2>
+		<button onclick="member_logout()">로그아웃</button>
 	</div>
 	<div id="btns" style="margin: 30px;">
 		<button onclick="reg_add_go()">회원가입</button>

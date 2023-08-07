@@ -20,11 +20,15 @@
 		<typeAlias type="com.ict.member.model.vo.MemberVO" alias="mvo2"/>
 		<typeAlias type="com.ict.model.vo.GuestbookVO" alias="gvo"/>
 		<typeAlias type="com.ict.model.vo.Guestbook2VO" alias="gvo2"/>
+		<typeAlias type="com.ict.bbs.model.vo.BBSVO" alias="bvo"/>
+		<typeAlias type="com.ict.bbs.model.vo.CommentVO" alias="cvo"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/members-mapper.xml" />
 		<mapper resource="mappers/member-mapper.xml" />
 		<mapper resource="mappers/guestbook-mapper.xml" />
 		<mapper resource="mappers/guestbook2-mapper.xml" />
+		<mapper resource="mappers/bbs-mapper.xml" />
+		<mapper resource="mappers/comment-mapper.xml" />
 	</mappers>
 </configuration>
