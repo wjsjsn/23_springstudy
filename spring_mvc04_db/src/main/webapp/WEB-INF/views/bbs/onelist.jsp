@@ -149,8 +149,8 @@
 	
 	<%-- 댓글 출력 --%>
 	<div style="display: table;" >
-		<c:forEach var="k" items="${c_list}">
-		 <div style="border: 1px solid #cc00cc; width: 400px; margin: 20px; padding: 20px;">
+		<c:forEach var="k" items="${cList}">
+		 <div style="border: 1px solid gray; width: 400px; margin: 20px; padding: 20px;">
 		 	<form method="post">
 		 		<p>이름 : ${k.writer}</p>
 		 		<p>내용 : ${k.content }</p>

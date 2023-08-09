@@ -3,9 +3,17 @@ package com.ict.bbs.model.vo;
 import org.springframework.web.multipart.MultipartFile;
 
 public class BBSVO {
-	private String b_idx, subject, writer, content, f_name, pwd, write_date, hit;
+	private String b_idx, subject, writer, content, f_name, pwd, write_date, hit, status, commCount;
 	
 	private MultipartFile file;
+	
+	public String getCommCount() {
+		return commCount;
+	}
+
+	public void setCommCount(String commCount) {
+		this.commCount = commCount;
+	}
 
 	public MultipartFile getFile() {
 		return file;
@@ -77,5 +85,13 @@ public class BBSVO {
 
 	public void setHit(String hit) {
 		this.hit = hit;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }

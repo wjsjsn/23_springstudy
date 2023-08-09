@@ -5,7 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class Guestbook2VO {
 	// f_name은 db에 저장할 이름
 	private String idx, name, subject, content, email, pwd, f_name, regdate;
-	
+	// 파라미터를 저장할 이름
 	private MultipartFile file;
 	
 	public String getIdx() {

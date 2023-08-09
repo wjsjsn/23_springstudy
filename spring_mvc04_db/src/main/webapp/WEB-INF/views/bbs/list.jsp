@@ -134,7 +134,14 @@ table tfoot ol.paging li a:hover {
 						<c:forEach var="k" items="${bbs_list}" varStatus="vs">
 							<tr>
 								<td id="count">${paging.totalRecord - ((paging.nowPage - 1)*paging.numPerPage + vs.index)}</td>
-								<td><a href="/bbs_onelist.do?b_idx=${k.b_idx}">${k.subject}</a></td>
+								<c:choose>
+									<c:when test="${k.status == 1}">
+										<td style="color: lightgray;">삭제된 게시물 입니다.</td>								
+									</c:when>
+									<c:otherwise>
+										<td><a href="/bbs_onelist.do?b_idx=${k.b_idx}&page=${paging.nowPage}">${k.subject}(${k.commCount})</a></td>
+									</c:otherwise>
+								</c:choose>
 								<td>${k.writer }</td>
 								<td>${k.write_date.substring(0,10)}</td>
 								<td>${k.hit}</td>

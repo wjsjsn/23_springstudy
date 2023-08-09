@@ -53,24 +53,18 @@
 </style>
 <script type="text/javascript">
 	function update_ok(f) {
-		var pwd = "${bvo.pwd}";
-		if(f.pwd.value == pwd){
 			f.action="/bbs_updateOk.do";
 			f.submit();
-		}else{
-			alert("비밀번호 틀림");
-			f.pwd.value="";
-			f.pwd.focus();
-			return;
 		}
-	}
+	
 	function list_go(f) {
-		f.action="/bbs_list.do?page=${page}";
+		f.action="/bbs_list.do";
 		f.submit();
 	}
 </script>
 </head>
 <body>
+${alertScript }
 	<div id="bbs">
 	<form method="post" encType="multipart/form-data">
 		<table summary="게시판 수정">

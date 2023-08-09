@@ -8,7 +8,7 @@
 		select count(*) from bbs_t
 	</select>
 	
-	<select id="list" resultType="bvo">
+	<select id="list" parameterType="map" resultType="bvo">
 		select * from bbs_t order by b_idx desc limit #{limit} offset #{offset} 
 	</select>
 	
@@ -29,7 +29,24 @@
 		update bbs_t set subject = #{subject}, writer = #{writer}, content = #{content}, f_name = #{f_name} where b_idx = #{b_idx}
 	</update>
 	
-	<delete id="delete" parameterType="String">
-		delete from bbs_t where b_idx = #{b_idx}
+	<update id="delete" parameterType="String">
+		update bbs_t set status = 1 where b_idx = #{b_idx}
+	</update>
+	
+	<select id="commlist" resultType="cvo">
+		select * from comment_t where b_idx = #{b_idx}
+	</select>
+	
+	<insert id="commInsert" parameterType="cvo">
+		insert into comment_t (writer, content, write_date, b_idx)
+		values(#{writer}, #{content}, sysdate(), #{b_idx}) 
+	</insert>
+	
+	<delete id="commDelete" parameterType="String">
+		delete from comment_t where c_idx = #{c_idx}
 	</delete>
+	
+	<select id="commCount" resultType="int">
+		select count(*) from comment_t where b_idx = #{b_idx}
+	</select>
 </mapper>
