@@ -62,6 +62,10 @@
 	function member_logout() {
 		location.href = "/member_logout.do";
 	}
+	
+	function go_board() {
+		location.href = "/board_list.do";
+	}
 </script>
 </head>
 <body>
@@ -69,6 +73,7 @@
 	<button onclick="go_guestbook()">GuestBook</button>
 	<button onclick="go_guestbook2()">GuestBook2</button>
 	<button onclick="go_bbs()">BBS</button>
+	<button onclick="go_board()">Board</button>
 	<hr>
 	<div id="login" style="margin: 30px;">
 		<form method="post" action="/member_login.do">
