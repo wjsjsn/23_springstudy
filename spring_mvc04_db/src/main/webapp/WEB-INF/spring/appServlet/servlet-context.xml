@@ -22,6 +22,16 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.ict" />
+	<beans:bean id="log_inter" class="com.ict.common.LoginInterceptor" />
+	<interceptors>
+		<interceptor>
+			<mapping path="/bbs_list.do"/>
+			<mapping path="/board_insertForm.do"/>
+			<mapping path="/shop_addcart.do"/>
+			<mapping path="/shop_showcart.do"/>
+			<beans:ref bean="log_inter" />
+		</interceptor>
+	</interceptors>
 	
 	<!-- 파일 업로드용 클래스 등록 -->
 	 <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

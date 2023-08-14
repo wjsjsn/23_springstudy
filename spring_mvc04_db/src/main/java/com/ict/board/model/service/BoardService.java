@@ -1,6 +1,7 @@
 package com.ict.board.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.ict.board.model.vo.BoardVO;
 
@@ -22,5 +23,11 @@ public interface BoardService {
 	// 상세보기
 	BoardVO BoardOneList(String idx);
 	
+	int getLevUpdate(Map<String, Integer> map);
 	
+	int BoardAnsInsert(BoardVO bovo);
+	
+	int getBoardUpdateOk(BoardVO bovo);
+	
+	int getBoardDeleteOk(String idx);
 }

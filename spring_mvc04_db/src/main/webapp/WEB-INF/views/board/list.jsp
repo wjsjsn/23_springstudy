@@ -135,13 +135,19 @@ table tfoot ol.paging li a:hover {
 						<c:forEach var="k" items="${board_list}" varStatus="vs">
 							<tr>
 								<td id="count">${paging.totalRecord - ((paging.nowPage - 1)*paging.numPerPage + vs.index)}</td>
-								<%-- <c:choose>
+								 <c:choose>
 									<c:when test="${k.status == 1}">
 										<td style="color: lightgray;">삭제된 게시물 입니다.</td>								
 									</c:when>
+								<c:otherwise>
+									<td style="text-align: left; padding-left: 20px;">
+								<c:forEach begin="1" end="${k.step}">
+								&nbsp;[Re]
+								</c:forEach>
+								<a href="/board_onelist.do?idx=${k.idx}&page=${paging.nowPage}">${k.title}</a>
+								</td>
+									</c:otherwise>
 								</c:choose> 
-									--%>
-								<td><a href="/board_onelist.do?idx=${k.idx}&page=${paging.nowPage}">${k.title}</a></td>
 								<td>${k.writer }</td>
 								<td>${k.regdate.substring(0,10)}</td>
 								<td>${k.hit}</td>
@@ -177,7 +183,7 @@ table tfoot ol.paging li a:hover {
 										<li class="now">${k}</li>
 									</c:when>
 									<c:otherwise>
-										<li><a href="/bbs_list.do?page=${k}">${k}</a></li>
+										<li><a href="/board_list.do?page=${k}">${k}</a></li>
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>
@@ -191,7 +197,7 @@ table tfoot ol.paging li a:hover {
 								</c:when>
 								<c:otherwise>
 									<li><a
-										href="/bbs_list.do?page=${paging.beginBlock + paging.pagePerBlock}">다음으로</a></li>
+										href="/board_list.do?page=${paging.beginBlock + paging.pagePerBlock}">다음으로</a></li>
 								</c:otherwise>
 							</c:choose>
 						</ol>

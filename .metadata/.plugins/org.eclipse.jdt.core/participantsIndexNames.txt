@@ -29,6 +29,8 @@ D:\pcl\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1817364
 \spring_mvc04_db\src\main\java
 D:\pcl\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2101697761.index
 \Spring_guestbook\src\main\java
+D:\pcl\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\641927217.index
+\spring_mvc04_db\src\main\java
 D:\pcl\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3122147881.index
 \spring_mvc01\src\main\java
 D:\pcl\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1823557430.index

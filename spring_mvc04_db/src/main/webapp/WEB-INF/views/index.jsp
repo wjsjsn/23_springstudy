@@ -20,7 +20,7 @@
 	$(document).ready(function() {
 		var loginChk = "${loginChk}";
 		if(loginChk == "fail"){
-		alert("비밀번호 FAIL");
+		alert("비밀번호 FAIL"); 
 		return;
 	}else if(loginChk == "ok"){
 		alert("비밀번호 Ok");
@@ -66,6 +66,10 @@
 	function go_board() {
 		location.href = "/board_list.do";
 	}
+	
+	function go_shop() {
+		location.href = "/shop_list.do";
+	}
 </script>
 </head>
 <body>
@@ -74,6 +78,7 @@
 	<button onclick="go_guestbook2()">GuestBook2</button>
 	<button onclick="go_bbs()">BBS</button>
 	<button onclick="go_board()">Board</button>
+	<button onclick="go_shop()">Shop</button>
 	<hr>
 	<div id="login" style="margin: 30px;">
 		<form method="post" action="/member_login.do">

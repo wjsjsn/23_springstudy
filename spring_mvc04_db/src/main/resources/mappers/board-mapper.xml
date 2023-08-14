@@ -12,13 +12,13 @@
 		update board set hit = hit + 1 where idx = #{idx}
 	</update>
 	
-	<select id="list" parameterType="map" resultType="bovo">
-		select * from board order by idx desc, lev asc limit #{limit} offset #{offset} 
+	<select id="list" parameterType="Map" resultType="bovo">
+		select * from board order by groups desc, lev asc limit #{limit} offset #{offset} 
 	</select>
 	
 	<!-- 원글 삽입 -->
 	<insert id="insert" parameterType="bovo">
-		<selectKey keyProperty="groups" resultType="String " order="BEFORE">
+		<selectKey keyProperty="groups" resultType="String" order="BEFORE">
 			select (ifnull(max(idx), 0) + 1) as groups from board
 		</selectKey>
 		insert into board(writer, title, content, pwd, hit, groups, step, lev, regdate, f_name)
@@ -28,4 +28,21 @@
 	<select id="onelist" parameterType="String" resultType="bovo">
 		select * from board where idx = #{idx} 
 	</select>
+	
+	<update id="levUpdate" parameterType="Map">
+		update board set lev = lev + 1 where groups = #{groups} and lev >= #{lev}
+	</update>
+	
+	<insert id="ansInsert" parameterType="bovo">
+		insert into board(writer, title, content, pwd, hit, groups, step, lev, regdate, f_name)
+		values(#{writer}, #{title}, #{content}, #{pwd}, 0, #{groups}, #{step}, #{lev}, sysdate(), #{f_name})
+	</insert>
+	
+	<update id="update" parameterType="bovo">
+		update board set writer = #{writer}, title = #{title}, content= #{content}, f_name = #{f_name} where idx = #{idx}
+	</update>
+	
+	<update id="delete" parameterType="String">
+		update board set status = 1 where idx = #{idx}
+	</update>
 </mapper>

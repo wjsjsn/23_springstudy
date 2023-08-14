@@ -3,12 +3,20 @@ package com.ict.board.model.vo;
 import org.springframework.web.multipart.MultipartFile;
 
 public class BoardVO {
-	private String idx, writer, title, content, pwd, hit, groups, step, lev, regdate, f_name;
+	private String idx, writer, title, content, pwd, hit, groups, step, lev, regdate, f_name, status;
 	
 	private MultipartFile file;
 
 	public MultipartFile getFile() {
 		return file;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public void setFile(MultipartFile file) {
