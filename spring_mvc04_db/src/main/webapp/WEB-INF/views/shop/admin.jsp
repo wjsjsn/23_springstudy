@@ -29,6 +29,10 @@
 	h2 {
 		text-align: center;
 	}
+	
+	th{
+		background-color: lightyellow;
+	}
 </style>
 <script type="text/javascript">
 	function product_add(f) {
@@ -74,11 +78,11 @@
 					</tr>
 					<tr>
 						<th>상품이미지-s</th>
-						<td><input type="file" name="p_image_s" ></td>
+						<td><input type="file" name="file_s" ></td>
 					</tr>
 					<tr>
 						<th>상품이미지-L</th>
-						<td><input type="file" name="p_image_l" ></td>
+						<td><input type="file" name="file_l" ></td>
 					</tr>
 					<tr>
 						<th colspan="2">상품내용</th>

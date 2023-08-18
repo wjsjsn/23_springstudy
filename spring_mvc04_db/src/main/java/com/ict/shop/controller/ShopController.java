@@ -1,15 +1,19 @@
 package com.ict.shop.controller;
 
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ict.common.paging;
@@ -135,6 +139,49 @@ public class ShopController {
 	@GetMapping("/shop_product_insertForm.do")
 	public ModelAndView getInsertForm() {
 		return new ModelAndView("shop/admin");
+	}
+	
+	@PostMapping("/shop_insert.do")
+	public ModelAndView getProductInsert(ShopVO svo, HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView("redirect:/shop_list.do");
+		try {
+			String path = request.getSession().getServletContext().getRealPath("/resources/images");
+			MultipartFile file_s = svo.getFile_s();
+			MultipartFile file_l = svo.getFile_l();
+			if (file_s.isEmpty()) {
+				svo.setP_image_s("");
+			} else {
+				// 같은 이름 없도록 uuid 사용
+				UUID uuid = UUID.randomUUID();
+				String file_s2 = uuid.toString() + "_" + svo.getFile_s().getOriginalFilename();
+				svo.setP_image_s(file_s2);
+
+				// 이미지 저장
+				byte[] in = svo.getFile_s().getBytes();
+				File out = new File(path, file_s2);
+				FileCopyUtils.copy(in, out);
+			}
+			
+			if (file_l.isEmpty()) {
+				svo.setP_image_l("");
+			} else {
+				// 같은 이름 없도록 uuid 사용
+				UUID uuid = UUID.randomUUID();
+				String file_s2 = uuid.toString() + "_" + svo.getFile_l().getOriginalFilename();
+				svo.setP_image_l(file_s2);
+				
+				// 이미지 저장
+				byte[] in = svo.getFile_l().getBytes();
+				File out = new File(path, file_s2);
+				FileCopyUtils.copy(in, out);
+			}
+			shopService.getProductInsert(svo);
+			
+			return mv;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ModelAndView("shop/error");
+		}
 	}
 	
 }

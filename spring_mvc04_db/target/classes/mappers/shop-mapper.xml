@@ -35,4 +35,9 @@
 	<delete id="c_delete" parameterType="String">
 		delete from cart where idx = #{idx}
 	</delete>
+	
+	<insert id="p_insert" parameterType="svo">
+		insert into shop_t (p_num, category, p_name, p_company, p_image_s, p_image_l, p_content, p_date, p_price, p_saleprice)
+		values(#{p_num}, #{category}, #{p_name}, #{p_company}, #{p_image_s}, #{p_image_l}, #{p_content}, sysdate(), #{p_price}, #{p_saleprice})
+	</insert>
 </mapper>
